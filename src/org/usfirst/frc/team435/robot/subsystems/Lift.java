@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
  */
 public class Lift extends PIDSubsystem {
 	
+	private static final int SPEED_SCALE = 1; // Must be calibrated
+	
 	private CANTalon motor;
 	private Encoder enc;
 	private boolean stopped;
@@ -54,10 +56,18 @@ public class Lift extends PIDSubsystem {
 	}
 	
 	/**
-	 * Moves the lifter up at the specified speed.
+	 * Moves the lifter up at the specified speed. Speed is a value from -1 to 1
 	 * @param speed The speed to move the lifter at
 	 */
 	public void up(double speed){
+		upScaled(speed * SPEED_SCALE);
+	}
+	
+	/**
+	 * Move the lifter up at the specified speed.
+	 * @param speed Setpoint for the speed.
+	 */
+	public void upScaled(double speed){
 		setSetpoint(speed);
 		stopped = false;
 	}
@@ -67,8 +77,16 @@ public class Lift extends PIDSubsystem {
 	 * @param speed The speed the lifter will descend at
 	 */
 	public void down(double speed){
+		downScaled(speed * SPEED_SCALE);
+	}
+	
+	/**
+	 * Move the lifter down at the specified speed.
+	 * @param speed Setpoint for the speed.
+	 */
+	public void downScaled(double speed){
 		setSetpoint(-speed);
-		stopped = true;
+		stopped = false;
 	}
 	
 	@Override

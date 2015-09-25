@@ -19,8 +19,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  */
 public class Robot extends IterativeRobot {
 	
-	public static final Lift leftLift = new Lift(true, 0, 0, 0);
-	public static final Lift rightLift = new Lift(false, 0, 0, 0);
+	public static final Lift leftLift = new Lift(true, 0, 0, 0); // Must be calibrated
+	public static final Lift rightLift = new Lift(false, 0, 0, 0); // Must be calibrated
 	public static final Clamp clamp = new Clamp();
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static OI oi;

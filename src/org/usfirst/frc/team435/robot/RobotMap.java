@@ -13,6 +13,8 @@ import edu.wpi.first.wpilibj.SpeedController;
  * floating around.
  */
 public class RobotMap {
+	// --------------------- SET THE VALUES AS WELL --------------------- //
+	
 	
 	// -- PORT NUMBERS -- //
 	
